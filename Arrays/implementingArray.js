@@ -27,6 +27,7 @@ class Color {
     // create reference of the item that will be deleted
     const item = this.data[index];
     this.shiftItem(index);
+    return item;
   }
   // shiftItem() method will shift the index of the other data type by one once an item has been deleted
   shiftItem(index) {
