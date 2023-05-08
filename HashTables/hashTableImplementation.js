@@ -40,8 +40,35 @@ class HashTable {
     } // O(1)
     return undefined;
   }
+
+  // Grab all keys
+  keys() {
+    let keysArray = [];
+    // loop through all 30 items spaces
+    for (let i = 0; i < this.data.length; i++) {
+      if (this.data[i]) {
+        keysArray.push(this.data[i][0][0]);
+      }
+    }
+    return keysArray;
+  }
+
+  // Grab values
+  values() {
+    let valuesArray = [];
+    // loop through all 30 items spaces
+    for (let i = 0; i < this.data.length; i++) {
+      if (this.data[i]) {
+        valuesArray.push(this.data[i][0][1]);
+      }
+    }
+    return valuesArray;
+  }
 }
 // give a memory space of 30 to the HashTable
 const hashTable = new HashTable(30);
 console.log(hashTable.set("tesla model 3", 40000));
 console.log(hashTable.set("tesla model y", 55000));
+console.log(hashTable.get("tesla model y"));
+console.log(hashTable.keys());
+console.log(hashTable.values());
