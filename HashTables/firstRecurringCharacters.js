@@ -24,6 +24,7 @@ const firstRecurringElement = (array) => {
     // if doesn't exist, add the key to the hashMap
     hashMap[array[i]] = i;
   }
+  console.log(hashMap);
   return undefined;
 };
 
