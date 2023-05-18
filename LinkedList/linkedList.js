@@ -76,6 +76,31 @@ class Linked {
     this.length++;
     return this.length;
   }
+
+  // remove at index
+  remove(index) {
+    // if index is out of bounds return null
+    if (index >= this.length) {
+      return null;
+    }
+
+    const leader = this.traverseToIndex(index - 1);
+    // create a reference to point to the node that is after the one we want to remove
+    const removeNode = leader.next;
+    leader.next = removeNode.next;
+    // decrease the length
+    this.length--;
+  }
+
+  traverseToIndex(index) {
+    let counter = 0;
+    let currentNode = this.head;
+    while (counter !== index) {
+      currentNode = currentNode.next;
+      counter++;
+    }
+    return currentNode;
+  }
 }
 
 const linkedList = new Linked(20);
@@ -83,4 +108,5 @@ linkedList.append(15);
 linkedList.prepend(3);
 linkedList.insert(12, 1);
 linkedList.insert(1, 100);
+linkedList.remove(1);
 console.log(linkedList);
