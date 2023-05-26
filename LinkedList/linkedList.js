@@ -101,6 +101,35 @@ class Linked {
     }
     return currentNode;
   }
+
+  //reverse
+  reverse() {
+    // if the list is empty
+    if (this.length === 0) {
+      return null;
+    }
+
+    if (!this.head.next) {
+      return this.head;
+    }
+    // reference to this.head
+    let first = this.head;
+    this.tail = this.head;
+    let second = first.head;
+
+    // as long second isn't null
+    while (second) {
+      // create a temporary var that hond the second value
+      const temp = second.next;
+      // second value, point now to fist value -> previous
+      second.next = first;
+      first = second;
+      second = temp;
+    }
+    this.head.next = null;
+    this.head = first;
+    return this;
+  }
 }
 
 const linkedList = new Linked(20);
@@ -109,4 +138,5 @@ linkedList.prepend(3);
 linkedList.insert(12, 1);
 linkedList.insert(1, 100);
 linkedList.remove(1);
+linkedList.reverse();
 console.log(linkedList);
