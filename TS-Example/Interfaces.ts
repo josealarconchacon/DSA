@@ -7,7 +7,9 @@ interface IAccount {
   deposit?: () => void; // function have a void annotation
 }
 
-const account1: IAccount = {
+const account: IAccount = {
   name: "Jhon",
   balance: 100,
 };
+
+let accounts: IAccount[];
